@@ -136,6 +136,73 @@ END
 S=(E+T)
 \end{itemize}
 \subsection{WSAD restriced}
+\subsection{Wsad z elastycznym czasem wykonania zadania}
+\subsubsection{Sformułowanie problemu}
+\begin{itemize}
+\item n zadań niezależnych i niepodzielnych
+\item $p_{i}$ nominalny czas wykonania zadania i
+\item $m_{i}$ maksymalne skrócenie zadania i
+\item $p_{i}'$ rzeczywisty czas po skróceniu
+\item $x_{i}$ rzeczywiste skrócenie
+\item $\gamma_{i}$ koszt skrocenia zadania i o jednostkę
+\item $\alpha$, $\beta$, d jak poprzednio, d nierestryktywne
+\end{itemize}
+\subsubsection{Funkcja celu}
+Zminimalizować $\sum\limits_{i}^{n}(\alpha e_{i}+\beta t_{i} + \gamma_{i}x_{i})$
+\subsubsection{Właściwości}
+\begin{itemize}
+\item no idle time
+\item V-shape względem czasów $p_{i}'$
+\item k kończy się w d, $k=\left \lceil \frac{n\beta}{\alpha+\beta} \right \rceil$
+\item Wzór na długość zadań przed i po terminie wykonania: 
+
+$\sum=\alpha(L_{1}+2L_{2}+...+(k-1)L_{k})+\beta((n-k)R_{1}+(n-k-1)R_{2}+...+R_{n-k})$
+\item koszt uszeregowania zadania i na pozycji k: $C_{ik}=p_{i}\omega_{k}$
+\item $\gamma_{i}<\omega_{k}, \gamma_{i}=\omega_{k}$ opłaca się skracać maksymalnie
+\item $\gamma_{i}>\omega_{k}$ nie opłaca się skracać
+\item $C_{ik} = \left\{\begin{matrix}
+p_{i}'\omega_{k}+m_{i}\gamma_{i}$, gdy $\gamma_{i}<\omega_{k}\\ 
+p_{i}\omega_{k}$, gdy $\gamma_{i}>\omega_{k}
+\end{matrix}\right.$
+\item Problem przydziału
+\begin{itemize}
+\item Zminimalizować $\sum\limits_{i=1}^{n}\sum\limits_{k=1}^{n}C_{ik}y_{ik}$ przy ograniczeniach:
+\item $\sum\limits_{i=1}^{n} y_{ik}=1$, k=1,...,n
+\item $\sum\limits_{i=1}^{k} y_{ik}=1$, i=1,...,n
+\item $y_{ik}=\{0,1\}$
+\item $y_{ik} = \left\{\begin{matrix}
+1$, gdy zadanie i jest uszeregowane na pozycji k$\\ 
+0$, w przeciwnym razie$
+\end{matrix}\right.$
+\end{itemize}
+\end{itemize}
+\subsection{Problem z symetrycznymi wagami}
+\subsubsection{Sformułowanie problemu}
+\begin{itemize}
+\item n niepodzielnych, niezależnych zadań
+\item $p_{i}$ czas wykonania zadania i
+\item $\alpha_{i} =\beta_{i}$ jednostkowy koszt wykonania zadania przed lub po terminie
+\item d wspólny żądany termin zakończenia
+\subsubsection{Funkcja celu}
+Wyprowadzenie: $\sum\limits_{i=1}^{n}(e_{i}\alpha_{i}+\beta_{i}t_{i}) = \sum\limits_{i=1}^{n}\alpha_{i}(e_{i}+t_{i}) = \sum\limits_{i=1}^{n}\alpha_{i}\left | C_{i} - d \right |$
+
+Funkcja celu: $\sum\limits_{i=1}^{n}\alpha_{i}\left | C_{i} - d \right |$
+\end{itemize}
+\subsubsection{Własności}
+\begin{itemize}
+\item no idle time
+\item V-shape względem $\frac{p_{i}}{\alpha_{i}}$
+\item NP-trudny, nawet w wersji nieretryktywnej
+\item zadania posortowane według niemalejącej wartości $\frac{p_{i}}{\alpha_{i}}$
+\end{itemize}
+\subsubsection{Algorytm programowania dynamicznego}
+\begin{itemize}
+\item $h_{k}^{L}(s) = h_{k-1}^{*}(s+p_{k}) + \alpha_{k} \left | d-(s+p_{k} \right |$
+\item $h_{k}^{p}(s) = h_{k-1}^{*}(s) + \alpha_{k} \left | \sum\limits_{i=1}^{k} p_{k}+s-d \right |$
+\item $h_{k}^{*}(s)=\min(h_{k}^{L}(s), h_{k}^{p}(s))$
+\item $h_{0}=0$
+\item $h_{n}^{*} = {h_{k}^{*}(s), s=0,1,...}$
+\end{itemize}
 \subsection{TWET - total weighted...}
 \subsubsection{Sformułowanie problemu}
 \begin{itemize}
