@@ -40,11 +40,13 @@ Metody Optymalizacji w Zarządzaniu
 \end{equation}
 \subsection{PRV}
 \subsection{Problem Liu-Laylanda}
+\subsubsection{Sformułowanie problemu}
 \begin{itemize}
 \item jeden proces,
 \item n cyklicznych, niezależnych, podzielnych zadań o czasie wykonania Ci i okresie Ti,
 \item zadanie musi być wykonane w okresie Ti
 \end{itemize}
+\subsubsection{Własności problemu}
 \subsubsection{Algorytm statyczny}
 \begin{itemize}
 \item posortuj zadania rosnąco według okresów Ti
@@ -64,6 +66,8 @@ U=\sum\limits_{i=1}^{n}\frac{Ci}{Ti}
 U=m(\sqrt[m]{2}-1)
 \end{equation}
 \end{itemize}
+\subsubsection{Przykład statyczny}
+\subsubsection{Przykład dynamiczny}
 \subsection{MAD - Mean Absolute Deviation}
 \subsubsection{Sformułowanie problemu}
 \begin{itemize}
@@ -120,24 +124,25 @@ S=(E,T) (konkatenacja)
 \item V-shape
 \item dla problemu unrestricted zadanie k, gdzie $\left \lceil k^*=\frac{\beta n}{\alpha + \beta} \right \rceil$ kończy się w chwili d
 \end{itemize}
-
-\subsection{WSAD unrestriced}
+\subsubsection{Algorytm dla problemu nierestryktywnego}
 Algorytm unrestricted (Bagchi, Sullivan, Chang, 1987)
 \begin{itemize}
-\item Zadania uporządkowane są według LPT (od najdłuższego)
-\item |E| liczba zadań w zbiorze E (przed terminem)
-\item |T| liczba zadań w zbiorze T (po terminie)
-
-Krok 1. Zbiór E, T=0
-Krok 2 For k=1 TO n DO
-BEGIN
-usuń zadanie k ze zbioru J
-IF $(\alpha * |E|)<(\beta *(|T|+1))$ dodaj zadanie jako ostatnie do zbioru E
-ELSE dodaj na początek zbioru T
-END
-S=(E+T)
+	\item Zadania uporządkowane są według LPT (od najdłuższego)
+	\item |E| liczba zadań w zbiorze E (przed terminem)
+	\item |T| liczba zadań w zbiorze T (po terminie)
+	
+	Krok 1. Zbiór E, T=0
+	Krok 2 For k=1 TO n DO
+	BEGIN
+	usuń zadanie k ze zbioru J
+	IF $(\alpha * |E|)<(\beta *(|T|+1))$ dodaj zadanie jako ostatnie do zbioru E
+	ELSE dodaj na początek zbioru T
+	END
+	S=(E+T)
 \end{itemize}
-\subsection{WSAD restriced}
+\subsubsection{Algorytm dla problemu restryktywnego}
+\subsubsection{Przykład dla problemu nierestryktywnego}
+\subsubsection{Przykład dla problemu restryktywnego}
 \subsection{Wsad z elastycznym czasem wykonania zadania}
 \subsubsection{Sformułowanie problemu}
 \begin{itemize}
