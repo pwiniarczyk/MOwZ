@@ -176,4 +176,78 @@ zminimalizować $\sum\limits_{i=1}^{n}(\alpha i ei + \beta iti)$
 \item pi czas wykonania zadania i=1,..,n
 \item $\alpha i = \beta i = 1$ i=1,..,n
 \end{itemize}
+\subsubsection{Cel}
+Zminimalizować $\sum\limits_{i=1}^{n}(Ci-d)^2$
+\subsubsection{Własności}
+\begin{itemize}
+\item $d=\frac{1}{n}\sum\limits_{i=1}{n}Ci$
+\item $\sum\limits_{i=1}^{n}(C_{i}-\frac{1}{n}\sum\limits_{i=1}^{n}C_{i})^2 = \sum\limits_{i=1}^{n}(C_{i}- \bar{C_{i}})^2$ wariancja Ci
+\item no idle time
+\item najdłuższe zadanie uszeregowane jako pierwsze
+\item V-shape
+\item Algorytm Kaneta nie daje poprawnego rozwiazania problemu
+\item problem NP-trudny
+\item Zminimalizować $\sum\limits_{i=1}^{n}(C_{i}-d)^k k>0$
+\begin{itemize}
+\item 0$<$k$\leq$ 1 problem wielomianowy, algorytm Kaneta
+\item k$\geq$ 2 problem NP-trudny
+\item 1$<$k$<$2 problem otwarty
+\end{itemize}
+\end{itemize}
+\subsubsection{Algorytm}
+\begin{itemize}
+\item algorytm programowania dynamicznego
+\item algorytm podziału i ograniczeń
+\item metaheurystyki
+\item algorytmy spektralne 
+\end{itemize}
+\subsubsection{Algorytm programowania dynamicznego}
+\begin{itemize}
+\item zamiast wartości bezwzględnej, kwadrat
+\item $h_{k}^{L}(s)= h_{k-1}^{*}(s+p_{k})+(s+p_{k}-d)^2$
+\item $h_{k}^{p}(s)=h_{k-1}^{*}(s)+(s+\sum\limits_{i=1}^{k}p_{k} -d)^2$
+\item $h_{k}^{*}= \min\{h_{k}^{L}(s),h_{k}^{p}(s)\}$
+\item $h_{0}^{*}(s)=0$
+\item $h_{n}^{*}= \min\limits_{n} h_{n}^{*}(s)$
+\end{itemize}
+\subsection{Ten algorytm z tym takim wykresem fajnym}
+\subsubsection{Sformułowanie problemu}
+\begin{itemize}
+\item n niezależnych, niepodzielnych zadań
+\item jedna maszyna
+\item $d_{i}$ żądany termin zakończenia zadania i
+\item $\alpha_{i}$ jednostkowy koszt wykonania zadania i przed terminem
+\item $\beta_{i}$ jednostkowy koszt wykonania zadania i po terminie
+\end{itemize}
+\subsubsection{Funkcja celu}
+$\sum\limits_{i=1}^{n}(\lambda_{i}e_{i}+\beta_{i}t_{i})$
+\subsubsection{Dodatkowe ograniczenie}
+brak przerw w pracy procesora
+\subsubsection{Właściwości}
+\begin{itemize}
+\item nawet dla przypadku $\alpha_{i}=\beta_{i}=1$ problem jest silnie NP-trudny
+\item w literaturze rozważa się również przypadek z dodatkowym ograniczeniem na brak przerw w pracy procesora
+\item dla znanej sekwencji zadań ich optymalne położenie na osi czasu można znaleźć w czasie O(n) (wielomianowym zależnym od liczby zadań)\begin{itemize}
+\item model programowania liniowego
+\item algorytm zachłanny O(n$log_{n}$)
+\end{itemize}
+\end{itemize}
+\subsubsection{Programowanie liniowe}
+\begin{itemize}
+\item Zmienna decyzyjna $C_{i}$ (termin zakończenia zadania i)
+\item Funkcja celu $\sum\limits_{i=1}^{n}(\alpha_{i}e_{i}+\beta_{i}t_{i})$
+\item Ograniczenia
+ \begin{itemize}
+\item $e_{i} \geq d_{i}-C_{i}$
+\item $e_{i} \geq 0$
+\item $t_{i} \geq C_{i}-d_{i}$
+\item $t_{i} \geq 0$
+\item $C_{i+1} \geq C_{i} + p_{i+1}$
+\item $C_{1} \geq p_{1}$
+\end{itemize}
+\item Liczba zmiennych: 3n
+\item Liczba ograniczeń: 5n
+\end{itemize}
+\subsubsection{Przykład algorytm zachłanny}
+I tutaj ten wykresik. Wymiekam
 \end{document}
