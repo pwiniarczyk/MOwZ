@@ -419,7 +419,7 @@ Szereguję zadanie (k+1)
 	$h_{k+1}^{L}=[\max(s+p_{k+1}-d,0)\beta + \alpha\max(d-s-p_{k-1},0)]+h_{k}^{*}(s+p_{k+1})$
 	\item szereguję z prawej strony
 	
-	$h_{k+1}^{p}=\beta\left | (s+\sum\limits_{i}^{k}p_{i} \right | +h_{k}^{*}(s)$, dla spełnionego warunku $(s+\sum\limits_{i=1}^{|n|}p_{i}\geq d)$
+	$h_{k+1}^{p}=\beta\left | (s+\sum\limits_{i}^{k}p_{i}-d) \right | +h_{k}^{*}(s)$, dla spełnionego warunku $(s+\sum\limits_{i=1}^{|n|}p_{i}\geq d)$
 	\item $h_{k+1}^{*}(s)=\min(h_{k+1}^{L}(s), h_{k+1}^{p}(s))$
 	\item $h_{n}^{*}=\min h_{n}^{*}(s)$
 \end{itemize}
