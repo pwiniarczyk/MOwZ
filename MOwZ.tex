@@ -267,6 +267,39 @@ END
 S=(E,T) (konkatenacja)
 \end{enumerate}
 \subsubsection{Algorytm dla problemu restryktywnego}
+Problem jest NP-trudny w zwykłym sensie (redukcja do problemu przydziału) dla restryktywnego. Dlatego proponujemy algorytm programowania dynamicznego
+\begin{enumerate}
+\item Porządkujemy zadania według niemalejącego porządku
+\item $d\geq 0$
+
+$E=\{i=J$ $C_{i}<d\}$
+
+$T=\{i=J$ $C_{i}>d_{i}\}$
+
+${J\setminus(T\cup E)\neq \phi}$
+\end{enumerate}
+Kroki:
+\begin{enumerate}
+\item Etap = k uszeregowania zadania k, k=1,..,n
+\item Stan na etapie k: $0\leq s \leq d$, oznacza początek uszeregowania podzbioru zadań {1,..,k}
+\item Decyzja: 
+\begin{itemize}
+\item uszeregować zadanie k na początku w chwili s
+
+$h_{k}^{L}(s)=h_{k-1}(s+p_{k})+ \left | s+p_{k}-d \right |$
+\item uszeregować zadanie k na końcu w chwili (...?)
+
+$h_{k}^{p}(s)=h_{k-1}(s)+\left | s+\sum\limits_{i=1}^{k}p_{i}-d \right |$
+\item dalsze wzory:
+
+$h_{k}^{*}=\min(h_{k}^{p}(s),h_{k}^{L}(s))$
+
+$h_{0}^{*}(s)=0$ dla $s\in [0,d]$
+
+$h_{n}^{*}=\min\limits_{0\leq s\leq d}\{h_{n}^{*}(s)\}$
+\end{itemize}
+\end{enumerate}
+
 \subsubsection{Przykład dla problemu nierestryktywnego}
 \subsubsection{Przykład dla problemu restryktywnego}
 \subsection{WSAD weighted sum of absolute deviations}
