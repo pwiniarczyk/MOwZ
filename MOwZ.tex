@@ -11,7 +11,21 @@ Metody Optymalizacji w Zarządzaniu
 \newpage
 \tableofcontents
 \section{Przydział miejsc w parlamencie}
-\subsection{Tu kilka stron o początkowych tematach Jefferson i inni}
+\subsection{Jefferson}
+\subsubsection{Algorytm}
+\subsubsection{Przykład}
+\subsection{Adamsa}
+\subsubsection{Algorytm}
+\subsubsection{Przykład}
+\subsection{Webstera}
+\subsubsection{Algorytm}
+\subsubsection{Przykład}
+\subsection{Balińskiego}
+\subsubsection{Algorytm}
+\subsubsection{Przykład}
+\subsection{Stilla}
+\subsubsection{Algorytm}
+\subsubsection{Przykład z regułą Adamsa}
 
 \newpage
 \subsection{Tijdeman}
@@ -38,7 +52,14 @@ Metody Optymalizacji w Zarządzaniu
 \begin{equation}
 \frac{1-\frac{1}{2K-2}-\sigma i}{\lambda i} \to min
 \end{equation}
-\subsection{PRV}
+\subsection{Steinera-Yeomansa}
+\subsubsection{Algorytm}
+\subsubsection{Przykład}
+\subsection{Inmana-Bulfina}
+\subsubsection{Algorytm}
+\subsubsection{Przykład}
+\subsection{Zamiana w PRV}
+\section{Szeregowanie zadań}
 \subsection{Problem Liu-Laylanda}
 \subsubsection{Sformułowanie problemu}
 \begin{itemize}
@@ -46,7 +67,7 @@ Metody Optymalizacji w Zarządzaniu
 \item n cyklicznych, niezależnych, podzielnych zadań o czasie wykonania Ci i okresie Ti,
 \item zadanie musi być wykonane w okresie Ti
 \end{itemize}
-\subsubsection{Własności problemu}
+\subsubsection{Własności}
 \subsubsection{Algorytm statyczny}
 \begin{itemize}
 \item posortuj zadania rosnąco według okresów Ti
@@ -80,7 +101,7 @@ U=m(\sqrt[m]{2}-1)
 \begin{equation}
 \sum\limits_{i=1}^{n}\left | Ci-d \right |
 \end{equation}
-\subsubsection{Własności problemu}
+\subsubsection{Własności}
 \item najdłuższe zadanie uszeregowane jako pierwsze
 \item no idle time - brak przerwy mieędzy zadaniami
 \item V-shape uszeregowane zadania przed terminem zakończenia są uporządkowane według nierosnących czasów wykonania zadania, natomiast zadania które są uszeregowane po terminie zakończenia są uporządkowane według niemalejących czasów wykonania
@@ -173,7 +194,7 @@ $h_{k+1}^{p}=\beta\left | (s+\sum\limits_{i}^{k}p_{i} \right | +h_{k}^{*}(s)$, d
 \end{itemize}
 \subsubsection{Funkcja celu}
 Zminimalizować $\sum\limits_{i}^{n}(\alpha e_{i}+\beta t_{i} + \gamma_{i}x_{i})$
-\subsubsection{Właściwości}
+\subsubsection{Własności}
 \begin{itemize}
 \item no idle time
 \item V-shape względem czasów $p_{i}'$
@@ -200,6 +221,8 @@ p_{i}\omega_{k}$, gdy $\gamma_{i}>\omega_{k}
 \end{matrix}\right.$
 \end{itemize}
 \end{itemize}
+\subsubsection{Algorytm}
+\subsubsection{Przykład}
 \subsection{Problem z symetrycznymi wagami}
 \subsubsection{Sformułowanie problemu}
 \begin{itemize}
@@ -227,6 +250,7 @@ Funkcja celu: $\sum\limits_{i=1}^{n}\alpha_{i}\left | C_{i} - d \right |$
 \item $h_{0}=0$
 \item $h_{n}^{*} = {h_{k}^{*}(s), s=0,1,...}$
 \end{itemize}
+\subsubsection{Przykład}
 \subsection{TWET - total weighted...}
 \subsubsection{Sformułowanie problemu}
 \begin{itemize}
@@ -259,6 +283,7 @@ zminimalizować $\sum\limits_{i=1}^{n}(\alpha i ei + \beta iti)$
 \item Jeżeli naruszone są warunki (I) lub (II) to kończymy gałąź. Jeżeli uszeregowanie jest dopuszczalne, to obliczamy jego koszt.
 \item Rozwijamy drzewo do sprawdzenia wszystkich dopuszczalnych uszeregowań
 \end{enumerate}
+\subsubsection{Przykład}
 \subsection{CTV - Completion Time Variance}
 \subsubsection{Sformułowanie problemu}
 \begin{itemize}
@@ -267,7 +292,7 @@ zminimalizować $\sum\limits_{i=1}^{n}(\alpha i ei + \beta iti)$
 \item pi czas wykonania zadania i=1,..,n
 \item $\alpha i = \beta i = 1$ i=1,..,n
 \end{itemize}
-\subsubsection{Cel}
+\subsubsection{Funkcja celu}
 Zminimalizować $\sum\limits_{i=1}^{n}(Ci-d)^2$
 \subsubsection{Własności}
 \begin{itemize}
