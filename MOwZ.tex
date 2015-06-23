@@ -26,7 +26,10 @@ r=[r_1, r_2, ... , r_s]
 \end{equation}
 \end{description}
 \subsection{Metoda podziału}
-Metodą podziału M (apportionment method) nazywamy regułę, która dla każdego s-elementowego wektora $ p>0 $ i liczby całkowitej $h  >0$ określa co najmniej jeden s-elementowy wektor a liczb całkowitych, taki, że ???TODO
+Metodą podziału M (apportionment method) nazywamy regułę, która dla każdego s-elementowego wektora $ p>0 $ i liczby całkowitej $h  >0$ określa co najmniej jeden s-elementowy wektor a liczb całkowitych, taki, że 
+\begin{equation}
+q_i = \frac{p_i}{\sum \limits_{i=1}^{S} p_i} * h_i
+\end{equation}
 \subsection{Podział}
 Podziałem otrzymanym za pomocą metody M
  nazywamy funkcję f, taką, że 
@@ -79,7 +82,9 @@ zmodyfikowanej kwocie.
 Jest to uporządkowany zbiór wszystkich par (p, a), gdzie p oznacza liczbę mieszkańców, zaś a liczbę mandatów, które można by danemu stanowi przydzielić. Każda para (p, a) znajduje się w uporządkowaniu przed (p, a + 1).
 \subsubsection{Metoda dzielnikowa}
 Metoda, w której kryterium porównawcze jest reprezentowane przez indeks uporządkowania postaci:
-TODO
+\begin{equation}
+r(p,a) = \frac{p}{d(a)} \  gdzie \  a\leqslant d(a)\leqslant a+1
+\end{equation}
 
 gdzie d(a) jest ściśle rosnącą rzeczywistą funkcją określoną na nieujemnych liczbach całkowitych.
 
@@ -89,18 +94,28 @@ gdzie d(a) jest ściśle rosnącą rzeczywistą funkcją określoną na nieujemn
     \hline
     metoda  & d(a) \\ \hline
     Adamsa & a \\ \hline
-    Deana& \\ \hline
-    Hilla & \\ \hline
-    Webster & \\ \hline
+    Deana&  $    \frac{a(a+1)}{(a+0,5)}$ \\ \hline
+    Hilla & $\sqrt{a(a+1)}$\\ \hline
+    Webster & a+0,5\\ \hline
     Jeffersona& a+1 \\ \hline
     
     \end{tabular}
 \end{center}
-\subsection{Zachowanie dolnej kwoty} TODO
-\subsubsection{Zachowanie górnej kwoty} TODO
+\subsection{Zachowanie dolnej kwoty} 
+\begin{equation}
+a_i +1 > \frac{p_i}{\sum \limits_{i=1}^{S} p_i} h
+\end{equation}
+
+\subsubsection{Zachowanie górnej kwoty}
+\begin{equation}
+a_i -1 < \frac{p_i}{\sum \limits_{i=1}^{S} p_i} h
+\end{equation}
 \subsubsection{Metoda kwotowa (Balinski, Young)}
 
 Zbiór E(p,a) zawiera wszystkie te stany, które mogą otrzymać dodatkowy mandat bez naruszenia górnej kwoty.
+\begin{equation}
+E(p,a)=\lbrace i:a_i <\frac{p_ih}{\sum \limits_{k=1}^{S} p_k} \rbrace
+\end{equation}
 
 Wybiera się stan o największej wartości pi /(ai+1). Jest monotoniczna ze względu na rozmiar parlamentu. 
 
@@ -127,7 +142,13 @@ $h' \geq h $ , dla której  $q (h )  \geq a  (h -1 )+1. $
 \item si(g, i ) = ai(h – 1) + 1.
 \item $sj(g, i ) = max \lbrace ai(h – 1), qi(g) \rbrace \  dla \  j \neq i $,
 \end{itemize}
-\item Jeżeli nie istnieje g takie, że $h \leqslant g \leqslant hi $, dla którego TODO
+\item Jeżeli nie istnieje g takie, że $h \leqslant g \leqslant hi $, dla którego 
+
+\begin{equation}
+\sum \limits_{j=1}^{S} S_i(g,i)>g
+\end{equation}
+
+
 
 To stan i spełnia test dolnej kwoty czyli i $ \in $ E(h)
 \end{enumerate}
@@ -139,7 +160,13 @@ To stan i spełnia test dolnej kwoty czyli i $ \in $ E(h)
 
 \item Metoda jest monotoniczna ze względu na wektor populacji jeżeli dla wektorów p, p’ i przydziałów $a\in M(p,h)$, $a’\in M(p’,h)$ zachodzi:
 
-TODO 
+\begin{equation}
+a'_{i'}\geq a_i \cup a'_{j'}\geq a_j
+\end{equation}
+
+\begin{equation}
+\frac{p'_{i'}}{p'_{j'}}\geq \frac{p_i}{p_j} =>\lbrace \frac{p'_{i'}}{p'_{j'}}=\frac{p_i}{p_j} \ i \ a'_{i'},a'_{j'} \  moze \ byc \  zamienione \ z \ a_i.a_j \ \rbrace
+\end{equation}
 
 \item Każda metoda monotoniczna ze względu na wektor populacji jest monotoniczna ze względu na rozmiar parlamentu.
 
