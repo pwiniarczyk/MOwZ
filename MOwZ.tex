@@ -245,6 +245,35 @@ U=m(\sqrt[m]{2}-1)
 \end{itemize}
 \subsubsection{Przykład statyczny}
 \subsubsection{Przykład dynamiczny}
+\subsubsection{Transformacja do problemu przydziału miejsc w parlamencie}
+\begin{itemize}
+\item NWW(T1,...,Tn), możemy powtarzać dowolną ilość razy
+\item $\frac{C_{i}}{T}$ jest współczynnikiem częstotliwości pojawiania się zadania w uszeregowaniu o dowolnej długości
+\item Jeśli przyjmiemy, że aktualna długość szeregowania jest rozmiarem parlamentu h, to $\frac{C_{i}}{T_{i}}$ odpowiada $\frac{p_{i}}{P}$ zadania i
+\item Suma czasów zadania i wymagana w uszeregowaniu o długości h (zależy od liczby żądań) odpowiada rozmiarowi populacji $p_{i}$
+\end{itemize}
+Sformułowanie problemu(?)
+\begin{itemize}
+\item d żądany termin zakończenia
+\item C rzeczywisty termin zakończenia
+\item wyprzedzenie e=d-C
+\item Koszt wyprzedzenia: f(e)
+\item spóźnienie t=C-d
+\item Koszt spóźnienia g(t)
+\item $e_{i}=\left\{\begin{matrix}
+d_{i}-C_{i}$ gdy $C_{i}<d_{i}\\ 
+0$ gdy $C_{i}\geq d_{i}
+\end{matrix}\right.$
+\item $t_{i}=\left\{\begin{matrix}
+C_{i}-d_{i}$ gdy $C_{i}\geq d_{i}\\ 
+0$ gdy $C_{i}< d_{i}
+\end{matrix}\right.$
+\item Całkowity koszt uszeregowania
+
+$K=\sum\limits_{i=1}^{n}[f_{i}(e_{i})+g_{i}(t_{i})]$
+
+\item dla $d_{i}=d$ wszystkie zadania mają ten sam żądany termin zakończenia, wzory tak jak wyżej, $d_{i}$ zamienione na d.
+\end{itemize}
 \subsection{MAD - Mean Absolute Deviation}
 \subsubsection{Sformułowanie problemu}
 \begin{itemize}
@@ -281,6 +310,39 @@ END
 S=(E,T) (konkatenacja)
 \end{enumerate}
 \subsubsection{Algorytm dla problemu restryktywnego}
+Problem jest NP-trudny w zwykłym sensie (redukcja do problemu przydziału) dla restryktywnego. Dlatego proponujemy algorytm programowania dynamicznego
+\begin{enumerate}
+\item Porządkujemy zadania według niemalejącego porządku
+\item $d\geq 0$
+
+$E=\{i=J$ $C_{i}<d\}$
+
+$T=\{i=J$ $C_{i}>d_{i}\}$
+
+${J\setminus(T\cup E)\neq \phi}$
+\end{enumerate}
+Kroki:
+\begin{enumerate}
+\item Etap = k uszeregowania zadania k, k=1,..,n
+\item Stan na etapie k: $0\leq s \leq d$, oznacza początek uszeregowania podzbioru zadań {1,..,k}
+\item Decyzja: 
+\begin{itemize}
+\item uszeregować zadanie k na początku w chwili s
+
+$h_{k}^{L}(s)=h_{k-1}(s+p_{k})+ \left | s+p_{k}-d \right |$
+\item uszeregować zadanie k na końcu w chwili (...?)
+
+$h_{k}^{p}(s)=h_{k-1}(s)+\left | s+\sum\limits_{i=1}^{k}p_{i}-d \right |$
+\item dalsze wzory:
+
+$h_{k}^{*}=\min(h_{k}^{p}(s),h_{k}^{L}(s))$
+
+$h_{0}^{*}(s)=0$ dla $s\in [0,d]$
+
+$h_{n}^{*}=\min\limits_{0\leq s\leq d}\{h_{n}^{*}(s)\}$
+\end{itemize}
+\end{enumerate}
+
 \subsubsection{Przykład dla problemu nierestryktywnego}
 \subsubsection{Przykład dla problemu restryktywnego}
 \subsection{WSAD weighted sum of absolute deviations}
