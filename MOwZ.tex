@@ -11,21 +11,163 @@ Metody Optymalizacji w Zarządzaniu
 \newpage
 \tableofcontents
 \section{Przydział miejsc w parlamencie}
-\subsection{Jefferson}
-\subsubsection{Algorytm}
-\subsubsection{Przykład}
-\subsection{Adamsa}
-\subsubsection{Algorytm}
-\subsubsection{Przykład}
-\subsection{Webstera}
-\subsubsection{Algorytm}
-\subsubsection{Przykład}
-\subsection{Balińskiego}
-\subsubsection{Algorytm}
-\subsubsection{Przykład}
-\subsection{Stilla}
-\subsubsection{Algorytm}
-\subsubsection{Przykład z regułą Adamsa}
+\subsection{Sformułowanie problemu}
+\begin{description}
+\item[s] liczba stanów
+\item [p ]wektor populacji
+\begin{equation}
+p=[p_1, p_2, ... , p_s]
+\end{equation}
+\item [h] rozmiar parlamentu
+\item[kwota] idealny podział
+\item[r] minimalny przydział miejsc
+\begin{equation}
+r=[r_1, r_2, ... , r_s]
+\end{equation}
+\end{description}
+\subsection{Metoda podziału}
+Metodą podziału M (apportionment method) nazywamy regułę, która dla każdego s-elementowego wektora $ p>0 $ i liczby całkowitej $h  >0$ określa co najmniej jeden s-elementowy wektor a liczb całkowitych, taki, że ???TODO
+\subsection{Podział}
+Podziałem otrzymanym za pomocą metody M
+ nazywamy funkcję f, taką, że 
+ $f(p, h) =  a \in M(p, h)$
+\subsection{metoda homogeniczna}
+Metodę nazywamy homogeniczną, jeżeli każdy podział otrzymany za pomocą metody M dla wektora p i liczby h jest identyczny, jak podział dla wektora $\lambda p$ i liczby h, dla
+dowolnej dodatnie liczby wymiernej $ \lambda$. 
+\subsection{Metoda symetryczna}
+Metodę nazywamy symetryczną, gdy podział zależy wyłącznie od wielkości populacji, a nie innej charakterystyki ubiegających się o zasób (stanów).
+\subsection{Metody sprawiedliwego podziału}
+\begin{itemize}
+\item Metoda Hamiltona
+\item Metody dzielnikowe
+\item Metoda kwotowa Balinskiego i Younga
+\item Metoda Stilla
+\end{itemize}
+\subsection{Metoda Hamiltona}
+Procedura
+\begin{enumerate}
+\item Oblicz dzielnik standardowy
+\begin{equation}
+SD=\frac{populacje\ kraju}{rozmiar\ parlamentu}
+\end{equation}
+\item Oblicz kwoty standardowe dla poszczególnych stanów 
+\begin{equation}
+SQ_i	=\frac{populacje\ stanu \ i}{SD}
+\end{equation}
+\item Początkowo przydziel każdemu stanowi jego dolną kwotę(kwotę zaokrągloną w dół)
+\item Jeżeli pozostał nieprzydzielone miejsca to przydziel je kolejno
+stanom o największej części ułamkowej kwoty standardowej.
+\end{enumerate}
+\subsection{Metoda Jeffersona}
+Procedura
+\begin{enumerate}
+\item Oblicz dzielnik standardowy 
+\item Oblicz kwoty standardowe dla poszczególnych stanów 
+
+\item Początkowo przydziel każdemu stanowi jego dolną kwotę
+\item  Jeżeli suma dolnych kwot jest równa
+rozmiarowi parlamentu to przydziel
+stanom taką liczbę miejsc.
+\item W przeciwnym razie metodą prób i błędów znajdź liczbę MD
+(zmodyfikowany dzielnik) tak, aby zmodyfikowane kwoty
+(MQ) zaokrąglone w dół sumowały się do rozmiaru parlamentu.
+Przydziel każdemu stanowi liczbę miejsc równą jego dolnej
+zmodyfikowanej kwocie.
+\end{enumerate}
+\subsection{Metody dzielnikowe}
+\subsubsection{Kryterium porównawcze}
+Jest to uporządkowany zbiór wszystkich par (p, a), gdzie p oznacza liczbę mieszkańców, zaś a liczbę mandatów, które można by danemu stanowi przydzielić. Każda para (p, a) znajduje się w uporządkowaniu przed (p, a + 1).
+\subsubsection{Metoda dzielnikowa}
+Metoda, w której kryterium porównawcze jest reprezentowane przez indeks uporządkowania postaci:
+TODO
+
+gdzie d(a) jest ściśle rosnącą rzeczywistą funkcją określoną na nieujemnych liczbach całkowitych.
+
+\subsubsection{Metody dzielnikowe}
+\begin{center}
+    \begin{tabular}{ | l  |l |}
+    \hline
+    metoda  & d(a) \\ \hline
+    Adamsa & a \\ \hline
+    Deana& \\ \hline
+    Hilla & \\ \hline
+    Webster & \\ \hline
+    Jeffersona& a+1 \\ \hline
+    
+    \end{tabular}
+\end{center}
+\subsection{Zachowanie dolnej kwoty} TODO
+\subsubsection{Zachowanie górnej kwoty} TODO
+\subsubsection{Metoda kwotowa (Balinski, Young)}
+
+Zbiór E(p,a) zawiera wszystkie te stany, które mogą otrzymać dodatkowy mandat bez naruszenia górnej kwoty.
+
+Wybiera się stan o największej wartości pi /(ai+1). Jest monotoniczna ze względu na rozmiar parlamentu. 
+
+\subsubsection{Metoda kwotowa (Still)}
+\begin{enumerate}
+\item Dla h = 0 przyporządkuj a = 0
+\item Dla $h > 0$ przydziel kolejne miejsce stanowi ze
+zbioru E(h).
+\end{enumerate}
+
+Definicja zbioru E(h)
+\begin{enumerate}
+\item  Liczba mandatów, które przydzielono stanowi i w parlamencie o rozmiarze h nie przekracza „górnej” kwoty.
+\item Stan i spełnia test dolnej kwoty (Stilla).
+\end{enumerate}
+
+Test dolnej kwoty (Stilla).
+\begin{enumerate}
+\item Niech hi będzie rozmiarem parlamentu, w którym stan i po raz pierwszy powinien
+otrzymać kolejny mandat, czyli hi jest najmniejszą z liczb 
+$h' \geq h $ , dla której  $q (h )  \geq a  (h -1 )+1. $ 
+\item Dla każdego g, będącego rozmiarem parlamentu, $h \leq g < h_i $ zdefiniujmy:
+\begin{itemize}
+\item si(g, i ) = ai(h – 1) + 1.
+\item $sj(g, i ) = max \lbrace ai(h – 1), qi(g) \rbrace \  dla \  j \neq i $,
+\end{itemize}
+\item Jeżeli nie istnieje g takie, że $h \leqslant g \leqslant hi $, dla którego TODO
+
+To stan i spełnia test dolnej kwoty czyli i $ \in $ E(h)
+\end{enumerate}
+
+\subsubsection{Własności metod podziału}
+\begin{itemize}
+\item Metoda jest \textbf{monotoniczna ze względu na rozmiar parlamentu} jeżeli w wypadku zwiększenia dostępnej liczby mandatów, liczba mandatów przydzielonych do każdego stanu będzie nie mniejsza niż poprzednio.
+\item Metoda jest \textbf{parami zgodna} (jednorodna - uniform), jeżeli dla każdych dwóch stanów dysponujących łącznie określoną liczbą mandatów podział mandatów pomiędzy te stany jest niezależny od obecności innych stanów.
+
+\item Metoda jest monotoniczna ze względu na wektor populacji jeżeli dla wektorów p, p’ i przydziałów $a\in M(p,h)$, $a’\in M(p’,h)$ zachodzi:
+
+TODO 
+
+\item Każda metoda monotoniczna ze względu na wektor populacji jest monotoniczna ze względu na rozmiar parlamentu.
+
+\end{itemize}
+
+\subsubsection{Twierdzenie o niemożliwości}
+
+Nie istnieje metoda podziału miejsc dla co najmniej czterech stanów i parlamentu o rozmiarze
+$h \geq $ liczba stanów +3, która byłaby monotoniczna ze względu na wektor populacji i jednocześnie spełniała warunek kwoty.
+
+Wniosek
+
+\begin{itemize}
+\item Żadna z metod dzielnikowych nie zachowuje kwoty.
+\item Metoda Stilla nie jest monotoniczna ze względu na wektor populacji, bo zachowuje kwotę.
+\end{itemize}
+
+\begin{center}
+    \begin{tabular}{ | p{5cm} |l | l |}
+    \hline
+      & Zachowuje kwote &Nie zachowuje kwoty \\ \hline
+    Monotonczine ze wzgledu na rozm parlamentu & Still, Balinski-Young& Metody dzielnikowe \\ \hline
+    Niemonotonczine ze wzgledu na rozm parlamentu& & Hamilton \\ \hline
+    
+    
+    \end{tabular}
+\end{center}
+
 
 \newpage
 \subsection{Tijdeman}
