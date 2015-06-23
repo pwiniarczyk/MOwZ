@@ -162,25 +162,25 @@ Algorytm unrestricted (Bagchi, Sullivan, Chang, 1987)
 	S=(E+T)
 \end{itemize}
 \subsubsection{Algorytm dla problemu restryktywnego}
-\subsubsection{Przykład dla problemu nierestryktywnego}
-\subsubsection{Przykład dla problemu restryktywnego}
-\subsubsection{Właściwości}
 \begin{itemize}
-\item NP trudny w zwykłym sensie
-\item zadania uporządtkowane SPT (niemalejąco)
+	\item NP trudny w zwykłym sensie
+	\item zadania uporządkowane SPT (niemalejąco)
 \end{itemize}
-\subsubsection{Omówienie algorytmu}
+
 Szereguję zadanie (k+1)
 \begin{itemize}
-\item szereguję z lewej strony
-
-$h_{k+1}^{L}=[\max(s+p_{k+1}-d,0)\beta + \alpha\max(d-s-p_{k-1},0)]+h_{k}^{*}(s+p_{k+1})$
-\item szereguję z prawej strony
-
-$h_{k+1}^{p}=\beta\left | (s+\sum\limits_{i}^{k}p_{i} \right | +h_{k}^{*}(s)$, dla spełnionego warunku $(s+\sum\limits_{i=1}^{|n|}p_{i}\geq d)$
-\item $h_{k+1}^{*}(s)=\min(h_{k+1}^{L}(s), h_{k+1}^{p}(s))$
-\item $h_{n}^{*}=\min h_{n}^{*}(s)$
+	\item szereguję z lewej strony
+	
+	$h_{k+1}^{L}=[\max(s+p_{k+1}-d,0)\beta + \alpha\max(d-s-p_{k-1},0)]+h_{k}^{*}(s+p_{k+1})$
+	\item szereguję z prawej strony
+	
+	$h_{k+1}^{p}=\beta\left | (s+\sum\limits_{i}^{k}p_{i} \right | +h_{k}^{*}(s)$, dla spełnionego warunku $(s+\sum\limits_{i=1}^{|n|}p_{i}\geq d)$
+	\item $h_{k+1}^{*}(s)=\min(h_{k+1}^{L}(s), h_{k+1}^{p}(s))$
+	\item $h_{n}^{*}=\min h_{n}^{*}(s)$
 \end{itemize}
+\subsubsection{Przykład dla problemu nierestryktywnego}
+\subsubsection{Przykład dla problemu restryktywnego}
+
 \subsection{Wsad z elastycznym czasem wykonania zadania}
 \subsubsection{Sformułowanie problemu}
 \begin{itemize}
@@ -189,7 +189,7 @@ $h_{k+1}^{p}=\beta\left | (s+\sum\limits_{i}^{k}p_{i} \right | +h_{k}^{*}(s)$, d
 \item $m_{i}$ maksymalne skrócenie zadania i
 \item $p_{i}'$ rzeczywisty czas po skróceniu
 \item $x_{i}$ rzeczywiste skrócenie
-\item $\gamma_{i}$ koszt skrocenia zadania i o jednostkę
+\item $\gamma_{i}$ koszt skrócenia zadania i o jednostkę
 \item $\alpha$, $\beta$, d jak poprzednio, d nierestryktywne
 \end{itemize}
 \subsubsection{Funkcja celu}
@@ -230,7 +230,7 @@ p_{i}\omega_{k}$, gdy $\gamma_{i}>\omega_{k}
 \item $p_{i}$ czas wykonania zadania i
 \item $\alpha_{i} =\beta_{i}$ jednostkowy koszt wykonania zadania przed lub po terminie
 \item d wspólny żądany termin zakończenia
-\subsubsection{Funkcja celu}
+
 Wyprowadzenie: $\sum\limits_{i=1}^{n}(e_{i}\alpha_{i}+\beta_{i}t_{i}) = \sum\limits_{i=1}^{n}\alpha_{i}(e_{i}+t_{i}) = \sum\limits_{i=1}^{n}\alpha_{i}\left | C_{i} - d \right |$
 
 Funkcja celu: $\sum\limits_{i=1}^{n}\alpha_{i}\left | C_{i} - d \right |$
@@ -260,8 +260,7 @@ Funkcja celu: $\sum\limits_{i=1}^{n}\alpha_{i}\left | C_{i} - d \right |$
 \item $\beta i$ jednostkowy koszt wykonania zadania i po terminie
 \item d wspólny żądany termin zakończenia
 
-\subsubsection{Funkcja celu}
-zminimalizować $\sum\limits_{i=1}^{n}(\alpha i ei + \beta iti)$
+Zminimalizować $\sum\limits_{i=1}^{n}(\alpha i ei + \beta iti)$
 \subsubsection{Własności}
 \item no idle time
 \item non-restriced - jedno zadanie kończy się w due-date
@@ -292,7 +291,7 @@ zminimalizować $\sum\limits_{i=1}^{n}(\alpha i ei + \beta iti)$
 \item pi czas wykonania zadania i=1,..,n
 \item $\alpha i = \beta i = 1$ i=1,..,n
 \end{itemize}
-\subsubsection{Funkcja celu}
+
 Zminimalizować $\sum\limits_{i=1}^{n}(Ci-d)^2$
 \subsubsection{Własności}
 \begin{itemize}
@@ -335,7 +334,6 @@ Zminimalizować $\sum\limits_{i=1}^{n}(Ci-d)^2$
 \item $\alpha_{i}$ jednostkowy koszt wykonania zadania i przed terminem
 \item $\beta_{i}$ jednostkowy koszt wykonania zadania i po terminie
 \end{itemize}
-\subsubsection{Funkcja celu}
 $\sum\limits_{i=1}^{n}(\lambda_{i}e_{i}+\beta_{i}t_{i})$
 \subsubsection{Dodatkowe ograniczenie}
 brak przerw w pracy procesora
